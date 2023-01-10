@@ -28,9 +28,6 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
 name: 'ClientHomeSearch',
-props: {
-    msg: String,
-},
 data: () => ({
       loaded: false,
       loading: false,
