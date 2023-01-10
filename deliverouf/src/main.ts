@@ -14,12 +14,12 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUser, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faHouse, faCartShopping} from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 loadFonts()
 
-library.add(faUser, faHouse)
+library.add(faUser, faHouse, faCartShopping)
 
 
 const vuetify = createVuetify({

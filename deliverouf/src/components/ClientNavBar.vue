@@ -12,11 +12,12 @@
     <v-spacer></v-spacer>
 
     <template v-slot:append>
-      <v-btn></v-btn>
+      <v-btn rounded to="/shop"><font-awesome-icon icon="fa-solid fa-cart-shopping"/>Shop</v-btn>
 
-      <v-btn to="/login"><font-awesome-icon icon="fa-solid fa-user" /></v-btn>
+      <v-btn rounded to="/login"><font-awesome-icon icon="fa-solid fa-user"/>User</v-btn>
 
-      <v-btn to="/"><font-awesome-icon icon="fa-solid fa-house" /></v-btn>
+      <v-btn rounded to="/"><font-awesome-icon icon="fa-solid fa-house" />Home</v-btn>      
+
     </template>
     
   </v-app-bar>
