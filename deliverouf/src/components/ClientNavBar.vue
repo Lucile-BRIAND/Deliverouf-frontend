@@ -43,19 +43,19 @@ import { defineComponent } from 'vue';
       group: null,
       items: [
         {
-          title: 'Foo',
+          title: 'Nom de compte',
           value: 'foo',
         },
         {
-          title: 'Bar',
+          title: 'Email lié au compte',
           value: 'bar',
         },
         {
-          title: 'Fizz',
+          title: 'Nombre de point',
           value: 'fizz',
         },
         {
-          title: 'Buzz',
+          title: 'Commande en cours',
           value: 'buzz',
         },
       ],
