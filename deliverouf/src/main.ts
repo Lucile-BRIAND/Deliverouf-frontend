@@ -3,6 +3,7 @@ import App from './App.vue'
 import "./style.css"
 import router from './router'
 import store from './store'
+import Vue from 'vue'
 
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css'
@@ -12,8 +13,13 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faUser, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core'
 
 loadFonts()
+
+library.add(faUser, faHouse)
 
 
 const vuetify = createVuetify({
@@ -29,4 +35,4 @@ const vuetify = createVuetify({
   })
 
 
-createApp(App).use(store).use(router).use(vuetify).mount('#app')
+createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(store).use(router).use(vuetify).mount('#app')
