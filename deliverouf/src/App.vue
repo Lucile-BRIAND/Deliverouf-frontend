@@ -4,13 +4,20 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
 import ClientNavBar from './components/ClientNavBar.vue';
 
-export default {
+export default defineComponent({
+  name: "AppClient",
   components:{
     ClientNavBar
-},
-};
+  },
+  data() {
+    return {
+    //
+    };
+  }
+});
 
 </script>
 
