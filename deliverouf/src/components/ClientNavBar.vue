@@ -5,9 +5,8 @@
   >
     <template v-slot:prepend>
       <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title class="text-h4 font-weight-bold" style="font-family:Franklin Gothic Heavy">Deliver'Ouf</v-toolbar-title>
     </template>
-
-    <v-app-bar-title>Deliverouf</v-app-bar-title>
 
     <v-spacer></v-spacer>
 
