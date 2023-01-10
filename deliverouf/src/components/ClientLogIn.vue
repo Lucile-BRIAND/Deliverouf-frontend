@@ -27,7 +27,7 @@
           ></v-text-field>
 
           <v-btn
-          color="success"
+          color="#39ccb8"
           class="mr-4"
           ref="validate"
           @click="validate"
