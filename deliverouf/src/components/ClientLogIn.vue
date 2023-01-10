@@ -1,42 +1,51 @@
 <template>
-    <v-form
-    ref="form"
-    v-model="valid"
-    lazy-validation
-    >
-        <v-text-field
-        v-model="name"
-        :counter="10"
-        :rules="nameRules"
-        label="Nom"
-        required
-        ></v-text-field>
+  <div class="ma-2 w-2/5 h-2/4 mx-auto bg-[#e9e9e9] border-2 border-[#e9e9e9] rounded-2xl shadow-xl">
+    <div class="flex align-center justify-center my-8">
+      <img width="127" height="130" src="https://cdn.discordapp.com/attachments/957955006810705941/1062027708298698834/image.png"/>
+    </div>
+    <div class="ma-8">
+      <v-form
+      ref="form"
+      v-model="valid"
+      lazy-validation
+      >
+          <v-text-field
+          v-model="name"
+          :counter="10"
+          :rules="nameRules"
+          label="Nom"
+          required
+          bg-color="#ffffff"
+          ></v-text-field>
 
-        <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        label="E-mail"
-        required
-        ></v-text-field>
+          <v-text-field
+          v-model="email"
+          :rules="emailRules"
+          label="E-mail"
+          required
+          bg-color="#ffffff"
+          ></v-text-field>
 
-        <v-btn
-        color="success"
-        class="mr-4"
-        ref="validate"
-        @click="validate"
-        >
-        Validate
-        </v-btn>
+          <v-btn
+          color="success"
+          class="mr-4"
+          ref="validate"
+          @click="validate"
+          >
+          Validate
+          </v-btn>
 
-        <v-btn
-        color="error"
-        class="mr-4"
-        ref="reset"
-        @click="reset"
-        >
-        Reset Form
-        </v-btn>
-  </v-form>
+          <v-btn
+          color="error"
+          class="mr-4"
+          ref="reset"
+          @click="reset"
+          >
+          Reset Form
+          </v-btn>
+      </v-form>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
