@@ -29,14 +29,16 @@
           <v-text-field
           v-model="password"
           :rules="passwordRules"
+          type="password"
           label="Mot de passe"
           required
           bg-color="#ffffff"
           ></v-text-field>
 
           <v-text-field
-          v-model="password"
-          :rules="passwordRules"
+          v-model="confirmPassword"
+          :rules="confirmPasswordRules.concat(passwordConfirmationRule)"
+          type="password"
           label="Confirmer le Mot de passe"
           required
           bg-color="#ffffff"
@@ -82,10 +84,9 @@ export default defineComponent({
         (v: any) => /.+@.+\..+/.test(v) || 'L\'e-mail doit être valide.',
       ],
       password: '',
-      passwordRules: [
-      (v: any) => !!v || 'Le nom est obligatoire.',
-        (v: any) => (v && v.length <= 10) || 'Le nom doit comporter 10 caractères maximum.',
-      ],
+      passwordRules: [(v: any) => !!v || "Password is required"],
+      confirmPassword: '',
+      confirmPasswordRules: [(v: any) => !!v || "Password is required"],
     }),
 
     methods: {
@@ -96,6 +97,12 @@ export default defineComponent({
       },
       reset () {
         (this.$refs.form as HTMLFormElement).reset()
+      },
+    },
+    computed: {
+      passwordConfirmationRule() {
+        return () =>
+          this.password === this.confirmPassword || "Password must match";
       },
     },
   });
