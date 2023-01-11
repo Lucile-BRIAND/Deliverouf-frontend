@@ -44,19 +44,19 @@ import { defineComponent } from 'vue';
       items: [
         {
           title: 'Nom de compte',
-          value: 'foo',
+          value: '@Data_NomCompte',
         },
         {
           title: 'Email lié au compte',
-          value: 'bar',
+          value: '@Data_EMail',
         },
         {
           title: 'Nombre de point',
-          value: 'fizz',
+          value: '@Data_NombrePoints',
         },
         {
           title: 'Commande en cours',
-          value: 'buzz',
+          value: '@Data_CommandesEnCours',
         },
       ],
     }),
