@@ -35,14 +35,6 @@
           Validate
           </v-btn>
 
-          <v-btn
-          color="error"
-          class="mr-4"
-          ref="reset"
-          @click="reset"
-          >
-          Reset Form
-          </v-btn>
       </v-form>
     </div>
   </div>
@@ -72,9 +64,6 @@ export default defineComponent({
         const { valid } = await (this.$refs.form as HTMLFormElement).validate()
 
         if (valid) alert('Le formulaire est valide.')
-      },
-      reset () {
-        (this.$refs.form as HTMLFormElement).reset()
       },
     },
   });

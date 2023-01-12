@@ -45,7 +45,7 @@
           ></v-text-field>
 
           <v-btn
-          color="success"
+          color="#39ccb8"
           class="mr-4"
           ref="validate"
           @click="validate"
@@ -54,7 +54,7 @@
           </v-btn>
 
           <v-btn
-          color="error"
+          color="success"
           class="mr-4"
           ref="reset"
           to="/login"
