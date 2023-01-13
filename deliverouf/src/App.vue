@@ -4,17 +4,20 @@
     <v-main>
       <router-view/>
     </v-main>
+    <ClientFooter/>
   </v-app>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import ClientNavBar from './components/ClientNavBar.vue';
+import ClientFooter from './components/ClientFooter.vue';
 
 export default defineComponent({
   name: "AppClient",
   components:{
-    ClientNavBar
+    ClientNavBar,
+    ClientFooter
   },
   data() {
     return {
