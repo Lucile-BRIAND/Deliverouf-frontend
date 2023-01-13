@@ -3,17 +3,47 @@
     <div class="flex flex-col mx-auto w-full">
       <div class="flex flex-wrap justify-center">
         <v-btn
-          v-bind:href="link.path"
-          v-for="(link, i) in links"
-          :key="i"
+          href="https://www.github.com"
           target="_blank"
           color="black"
           variant="text"
-          class="inline-flex mx-2"
-          rounded="xl"
+          class="inline-flex mx-2 hover:bg-[#39ccb8]"
           icon
         >
-          <v-icon>{{ link.icon }}</v-icon>
+          <font-awesome-icon icon="fa-brands fa-github" size="xl"/>
+        </v-btn>
+        
+        <v-btn
+          href="https://www.facebook.com"
+          target="_blank"
+          color="black"
+          variant="text"
+          class="inline-flex mx-2 hover:bg-[#39ccb8]"
+          icon
+        >
+          <font-awesome-icon icon="fa-brands fa-facebook" size="xl"/>
+        </v-btn>
+        
+        <v-btn
+          href="https://www.instagram.com"
+          target="_blank"
+          color="black"
+          variant="text"
+          class="inline-flex mx-2 hover:bg-[#39ccb8]"
+          icon
+        >
+          <font-awesome-icon icon="fa-brands fa-instagram" size="xl"/>
+        </v-btn>
+        
+        <v-btn
+          href="https://www.twitter.com"
+          target="_blank"
+          color="black"
+          variant="text"
+          class="inline-flex mx-2 hover:bg-[#39ccb8]"
+          icon
+        >
+          <font-awesome-icon icon="fa-brands fa-twitter" size="xl"/>
         </v-btn>
       </div>
 
@@ -46,24 +76,6 @@ import { defineComponent } from 'vue';
     name: "ClientFooter",
     panel: [],
     data: () => ({
-      links: [
-        {
-          icon:'mdi-facebook',
-          path: 'https://www.facebook.com'
-        },
-        {
-          icon:'mdi-instagram',
-          path: 'https://www.instagram.com'
-        },
-        {
-          icon:'mdi-twitter',
-          path: 'https://www.twitter.com'
-        },
-        {
-          icon:'mdi-linkedin',
-          path: 'https://www.linkedin.com'
-        },
-      ],
       items: [
         {
           name: "Découvrir Deliver'Ouf",

@@ -1,22 +1,32 @@
 <template>
-    <div class="flex py-8 bg-[#fff3c1]">
-        <div class="inline-flex flex-col my-auto ml-auto w-2/6">
+    <div class="flex flex-wrap py-8 bg-[#fff3c1]">
+        <div class="inline-flex flex-col my-auto ml-auto w-2/5">
             <p class="text-4xl font-semibold">Un petit creux ? Trouvez un restaurant facilement !</p><br>
             <v-card
                 color="#ebebeb"
             >
-                <v-card-text>
+                <v-card-text class="flex flex-wrap">
                     <v-text-field
                         :loading="loading"
                         density="compact"
                         variant="solo"
                         label="Rechercher un restaurant..."
-                        append-inner-icon="mdi-magnify"
+                        class="inline-flex mx-auto"
                         single-line
                         hide-details
-                        @click:append-inner="onClick"
                     ></v-text-field>
+
+                    <v-btn 
+                        class="inline-flex mx-auto" 
+                        fab 
+                        icon 
+                        small
+                        @click="onClick"
+                    >
+                        <font-awesome-icon icon="fa-solid fa-magnifying-glass"/>
+                    </v-btn>
                 </v-card-text>
+
             </v-card>
         </div>
         <div class="inline-flex w-2/4">
