@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-[450px] bg-[#fff3c1]">
+  <div class="flex flex-wrap h-[450px] bg-[#fff3c1]">
     <v-card
     class="inline-flex w-2/4"
     :elevation="0"
