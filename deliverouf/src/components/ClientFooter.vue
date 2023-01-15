@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="#ebebeb">
+  <v-footer bottom fixed padless color="#ebebeb">
     <div class="flex flex-col mx-auto w-full">
       <div class="flex flex-wrap justify-center">
         <v-btn

@@ -1,13 +1,10 @@
 <template>
   <div class="flex flex-wrap h-[450px] bg-[#fff3c1]">
-    <v-card
-    class="inline-flex w-2/4"
-    :elevation="0"
-    >
+    <div class="inline-flex w-2/4">
       <v-carousel
       cycle
       interval="3000"
-      hide-delimiter-background
+      hide-delimiters
       show-arrows="hover"
       >
         <v-carousel-item
@@ -18,21 +15,16 @@
         >
         </v-carousel-item>
       </v-carousel>
-    </v-card>
+    </div>
 
-    <v-card
-    class="inline-flex w-2/4"
-    color="#39ccb8"
-    :elevation="0"
-    >
+    <div class="inline-flex w-2/4 bg-[#39ccb8]">
       <div class="m-20 text-justify">
         <p class="text-2xl font-semibold">Manger chez soi et à petits prix, voilà notre devise.</p><br>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor pellentesque nibh eu condimentum. Integer vestibulum turpis in pharetra varius. Pellentesque egestas est convallis nisl faucibus gravida. <br>
-          Praesent in dolor at diam consectetur congue sed imperdiet mi. Suspendisse tincidunt, tortor vel semper dictum, quam magna molestie augue, id vehicula odio nibh in libero. In hac habitasse platea dictumst.
-        </p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor pellentesque nibh eu condimentum. Integer vestibulum turpis in pharetra varius. Pellentesque egestas est convallis nisl faucibus gravida.
+          </p>
         </div>
-    </v-card>
+      </div>
   </div>
 </template>
 
