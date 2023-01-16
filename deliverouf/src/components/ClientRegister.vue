@@ -54,7 +54,7 @@
           </v-btn>
 
           <v-btn
-          color="success"
+          color="#a8a58b"
           class="mr-4"
           ref="reset"
           to="/login"
@@ -84,7 +84,12 @@ export default defineComponent({
         (v: any) => /.+@.+\..+/.test(v) || 'L\'e-mail doit être valide.',
       ],
       password: '',
-      passwordRules: [(v: any) => !!v || "Password is required"],
+      passwordRules: [
+				{ message:'One lowercase letter required.', regex:/[a-z]+/ },
+				{ message:"One uppercase letter required.",  regex:/[A-Z]+/ },
+				{ message:"8 characters minimum.", regex:/.{8,}/ },
+				{ message:"One number required.", regex:/[0-9]+/ }
+			],
       confirmPassword: '',
       confirmPasswordRules: [(v: any) => !!v || "Password is required"],
     }),

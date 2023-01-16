@@ -9,19 +9,20 @@
       v-model="valid"
       lazy-validation
       >
-          <v-text-field
-          v-model="name"
-          :counter="10"
-          :rules="nameRules"
-          label="Nom"
+
+      <v-text-field
+          v-model="email"
+          :rules="emailRules"
+          label="E-mail"
           required
           bg-color="#ffffff"
           ></v-text-field>
 
           <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          label="E-mail"
+          v-model="name"
+          :counter="10"
+          :rules="nameRules"
+          label="Password"
           required
           bg-color="#ffffff"
           ></v-text-field>
@@ -34,6 +35,15 @@
           >
           Validate
           </v-btn>
+
+          <v-btn
+          color="#a8a58b"
+          class="mr-4"
+          to="/register"
+          >
+          Register
+          </v-btn>
+
 
       </v-form>
     </div>
