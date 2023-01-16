@@ -91,13 +91,13 @@ export default defineComponent({
       ],
       password: '',
       passwordRules: [
-				{ message:'One lowercase letter required.', regex:/[a-z]+/ },
-				{ message:"One uppercase letter required.",  regex:/[A-Z]+/ },
-				{ message:"8 characters minimum.", regex:/.{8,}/ },
-				{ message:"One number required.", regex:/[0-9]+/ }
+				{ message:'Nécessite au moins 1 lettre minuscule.', regex:/[a-z]+/ },
+				{ message:"Nécessite au moins 1 lettre majuscule.",  regex:/[A-Z]+/ },
+				{ message:"8 caractères minimum.", regex:/.{8,}/ },
+				{ message:"Nécessite au moins 1 chiffre.", regex:/[0-9]+/ }
 			],
       confirmPassword: '',
-      confirmPasswordRules: [(v: any) => !!v || "Password is required"],
+      confirmPasswordRules: [(v: any) => !!v || "Le mot de passe est obligatoire."],
     }),
 
     methods: {
@@ -113,7 +113,7 @@ export default defineComponent({
     computed: {
       passwordConfirmationRule() {
         return () =>
-          this.password === this.confirmPassword || "Password must match";
+          this.password === this.confirmPassword || "Le mot de passe doit correspondre.";
       },
     },
   });
