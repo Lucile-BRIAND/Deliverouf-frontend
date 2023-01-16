@@ -3,7 +3,7 @@
     <div class="flex flex-col mx-auto w-full">
       <div class="flex flex-wrap justify-center">
         <v-btn
-          href="https://www.github.com"
+          href="https://github.com/Lucile-BRIAND/Deliverouf-frontend/"
           target="_blank"
           color="black"
           variant="text"
@@ -81,16 +81,16 @@ import { defineComponent } from 'vue';
           name: "Découvrir Deliver'Ouf",
           tags: [
             {
-              urlname: "À propos",
-              url: "/"
-            },
-            {
               urlname: "Accueil",
               url: "/"
             },
             {
               urlname: "Mon compte",
-              url: "/"
+              url: "/login"
+            },
+            {
+              urlname: "Mon compte",
+              url: "/login"
             }
           ]
         },
