@@ -39,7 +39,7 @@
           v-model="confirmPassword"
           :rules="confirmPasswordRules.concat(passwordConfirmationRule)"
           type="password"
-          label="Confirmer le Mot de passe"
+          label="Confirmer le mot de passe"
           required
           bg-color="#ffffff"
           ></v-text-field>
@@ -50,16 +50,22 @@
           ref="validate"
           @click="validate"
           >
-          Validate
+          S'inscrire
           </v-btn>
 
+          <v-divider class="my-4"></v-divider>
+
+          <div class="mb-4 text-[#6b6b6b]">
+            Vous possédez déjà un compte ?
+          </div>
+
           <v-btn
-          color="#a8a58b"
+          color="#b6b6b6"
           class="mr-4"
           ref="reset"
           to="/login"
           >
-          Log In
+          Se connecter
           </v-btn>
       </v-form>
     </div>

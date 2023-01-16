@@ -22,7 +22,7 @@
           v-model="name"
           :counter="10"
           :rules="nameRules"
-          label="Password"
+          label="Mot de passe"
           required
           bg-color="#ffffff"
           ></v-text-field>
@@ -33,15 +33,21 @@
           ref="validate"
           @click="validate"
           >
-          Validate
+          Se connecter
           </v-btn>
 
+          <v-divider class="my-4"></v-divider>
+
+          <div class="mb-4 text-[#6b6b6b]">
+            Vous n'avez pas encore de compte ?
+          </div>
+
           <v-btn
-          color="#a8a58b"
+          color="#b6b6b6"
           class="mr-4"
           to="/register"
           >
-          Register
+          S'inscrire
           </v-btn>
 
 
