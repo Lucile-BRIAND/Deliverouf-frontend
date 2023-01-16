@@ -29,21 +29,23 @@
           <v-text-field
           v-model="password"
           :rules="passwordRules"
+          type="password"
           label="Mot de passe"
           required
           bg-color="#ffffff"
           ></v-text-field>
 
           <v-text-field
-          v-model="password"
-          :rules="passwordRules"
+          v-model="confirmPassword"
+          :rules="confirmPasswordRules.concat(passwordConfirmationRule)"
+          type="password"
           label="Confirmer le Mot de passe"
           required
           bg-color="#ffffff"
           ></v-text-field>
 
           <v-btn
-          color="success"
+          color="#39ccb8"
           class="mr-4"
           ref="validate"
           @click="validate"
@@ -52,7 +54,7 @@
           </v-btn>
 
           <v-btn
-          color="error"
+          color="#a8a58b"
           class="mr-4"
           ref="reset"
           to="/login"
@@ -83,9 +85,13 @@ export default defineComponent({
       ],
       password: '',
       passwordRules: [
-      (v: any) => !!v || 'Le nom est obligatoire.',
-        (v: any) => (v && v.length <= 10) || 'Le nom doit comporter 10 caractères maximum.',
-      ],
+				{ message:'One lowercase letter required.', regex:/[a-z]+/ },
+				{ message:"One uppercase letter required.",  regex:/[A-Z]+/ },
+				{ message:"8 characters minimum.", regex:/.{8,}/ },
+				{ message:"One number required.", regex:/[0-9]+/ }
+			],
+      confirmPassword: '',
+      confirmPasswordRules: [(v: any) => !!v || "Password is required"],
     }),
 
     methods: {
@@ -96,6 +102,12 @@ export default defineComponent({
       },
       reset () {
         (this.$refs.form as HTMLFormElement).reset()
+      },
+    },
+    computed: {
+      passwordConfirmationRule() {
+        return () =>
+          this.password === this.confirmPassword || "Password must match";
       },
     },
   });
