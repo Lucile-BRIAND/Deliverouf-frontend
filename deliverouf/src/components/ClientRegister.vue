@@ -118,7 +118,7 @@ export default defineComponent({
     computed: {
       passwordConfirmationRule() {
         return () =>
-          this.password === this.confirmPassword || "Le mot de passe doit correspondre.";
+          this.form.password === this.confirmPassword || "Le mot de passe doit correspondre.";
       },
     },
   });

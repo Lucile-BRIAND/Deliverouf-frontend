@@ -25,9 +25,10 @@
       location="left"
       temporary
   >
-      <v-list
-      :items="items"
-      ></v-list>
+    <v-list
+    :items="items"
+    >
+    </v-list>
   </v-navigation-drawer>
 </template>
 
@@ -42,20 +43,20 @@ import { defineComponent } from 'vue';
       group: null,
       items: [
         {
-          title: 'Nom de compte',
-          value: 'foo',
+          title: 'Mon compte',
+          value: '/account',
         },
         {
-          title: 'Email lié au compte',
-          value: 'bar',
+          title: 'Mes commandes',
+          value: '/commande',
         },
         {
-          title: 'Nombre de point',
-          value: 'fizz',
+          title: 'Mon panier',
+          value: '/shop',
         },
         {
-          title: 'Commande en cours',
-          value: 'buzz',
+          title: 'Déconnexion',
+          value: '/',
         },
       ],
     }),
