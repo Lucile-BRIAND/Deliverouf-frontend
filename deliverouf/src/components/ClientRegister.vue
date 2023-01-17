@@ -6,11 +6,12 @@
     <div class="ma-8">
       <v-form
       ref="form"
+      @submit.prevent="submit"
       v-model="valid"
       lazy-validation
       >
           <v-text-field
-          v-model="name"
+          v-model="form.username"
           :counter="10"
           :rules="nameRules"
           label="Nom"
@@ -19,7 +20,7 @@
           ></v-text-field>
 
           <v-text-field
-          v-model="email"
+          v-model="form.email"
           :rules="emailRules"
           label="E-mail"
           required
@@ -27,7 +28,7 @@
           ></v-text-field>
 
           <v-text-field
-          v-model="password"
+          v-model="form.password"
           :rules="passwordRules"
           type="password"
           label="Mot de passe"
@@ -47,8 +48,7 @@
           <v-btn
           color="#39ccb8"
           class="mr-4"
-          ref="validate"
-          @click="validate"
+          type="submit"
           >
           S'inscrire
           </v-btn>
@@ -62,7 +62,6 @@
           <v-btn
           color="#b6b6b6"
           class="mr-4"
-          ref="reset"
           to="/login"
           >
           Se connecter
@@ -74,6 +73,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { mapActions } from 'vuex';
 
 export default defineComponent({
     name: "ClientRegister",
@@ -91,29 +91,34 @@ export default defineComponent({
       ],
       password: '',
       passwordRules: [
-				{ message:'One lowercase letter required.', regex:/[a-z]+/ },
-				{ message:"One uppercase letter required.",  regex:/[A-Z]+/ },
-				{ message:"8 characters minimum.", regex:/.{8,}/ },
-				{ message:"One number required.", regex:/[0-9]+/ }
 			],
       confirmPassword: '',
       confirmPasswordRules: [(v: any) => !!v || "Password is required"],
+      form: {
+        username: "",
+        email: "",
+        password: "",
+      }
     }),
 
     methods: {
-      async validate () {
+      ...mapActions(["Register"]),
+      async submit () {
         const { valid } = await (this.$refs.form as HTMLFormElement).validate()
 
-        if (valid) alert('Le formulaire est valide.')
+        if (valid) {
+          const User = {username: this.form.username,email: this.form.email, password: this.form.password};
+
+          await this.Register(this.form);
+          this.$router.push("/");
+        }
       },
-      reset () {
-        (this.$refs.form as HTMLFormElement).reset()
-      },
+
     },
     computed: {
       passwordConfirmationRule() {
         return () =>
-          this.password === this.confirmPassword || "Password must match";
+          this.form.password === this.confirmPassword || "Password must match";
       },
     },
   });

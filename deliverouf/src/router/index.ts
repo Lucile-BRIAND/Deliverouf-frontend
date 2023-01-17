@@ -3,16 +3,19 @@ import HomeView from '../views/HomeView.vue'
 import ClientLogInView from '../views/ClientLogInView.vue'
 import ClientRegisterView from '../views/ClientRegisterView.vue'
 import ShopView from '../views/ShopView.vue'
+import store from '../store'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'login',
+    meta: { guest: true },
     component: ClientLogInView
   },
   {
     path: '/register',
     name: 'register',
+    meta: { guest: true },
     component: ClientRegisterView
   },
   {
@@ -26,22 +29,12 @@ const routes: Array<RouteRecordRaw> = [
     component: ShopView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
-  {
     path: "/commande",
-    name: "commande",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../components/ClientCommander.vue"),
-  },
+      name: "commande",
+      meta: { requiresAuth: true },
+      component: () =>
+        import(/* webpackChunkName: "about" */ "../components/ClientCommander.vue"),
+    },
 ]
 
 const router = createRouter({
@@ -49,4 +42,29 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.getters.isAuthenticated) {
+      next()
+      return
+    }
+    next('/login')
+  } else {
+    next()
+  }
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.guest)) {
+    if (store.getters.isAuthenticated) {
+      next("/");
+      return;
+    }
+    next();
+  } else {
+    next();
+  }
+});
+
 export default router
+

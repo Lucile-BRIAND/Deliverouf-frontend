@@ -4,6 +4,7 @@ import "./style.css"
 import router from './router'
 import store from './store'
 import Vue from 'vue'
+import axios from 'axios'
 
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css'
@@ -21,6 +22,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 loadFonts()
 
 library.add(faUser, faHouse, faCartShopping, faMagnifyingGlass, faGithub, faFacebook, faInstagram, faTwitter)
+
+axios.defaults.withCredentials = true
+axios.defaults.baseURL = 'http://localhost:8080/api/auth/';
 
 
 const vuetify = createVuetify({
