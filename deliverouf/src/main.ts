@@ -18,6 +18,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUser, faHouse, faCartShopping, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import VueSidebarMenu from 'vue-sidebar-menu'
+import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 
 loadFonts()
 
@@ -40,4 +42,4 @@ const vuetify = createVuetify({
   })
 
 
-createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(store).use(router).use(vuetify).mount('#app')
+createApp(App).component('font-awesome-icon', FontAwesomeIcon).use(store).use(router).use(vuetify).use(VueSidebarMenu).mount('#app')
