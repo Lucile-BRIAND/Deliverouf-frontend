@@ -39,14 +39,14 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/account',
     name: 'account',
-    //meta: { requiresAuth: true },
+    meta: { requiresAuth: true },
     component: ClientAccountView
   },
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 })
 
 router.beforeEach((to, from, next) => {
