@@ -2,12 +2,14 @@ import axios from 'axios';
 import { useRoute } from 'vue-router';
 
 const state = {
-  user: null
+  user: null,
+  mail: null,
 };
 
 const getters = {
   isAuthenticated: (state: { user: any; }) => !!state.user,    
   StateUser: (state: { user: any; }) => state.user,
+  email: (state: {mail: any; }) => state.mail,
 };
 
 const actions = {
@@ -18,6 +20,7 @@ const actions = {
   async LogIn({commit}: any, User: any) {
     await axios.post('signin', User)
     await commit('setUser', User.username)
+    await commit('setMail', User.email)
   },
   async LogOut({commit}: any){
     const user = null
@@ -32,10 +35,13 @@ const mutations = {
   setUser(state: { user: any; }, username: any){
     state.user = username
 },
-LogOut(state: { user: null; }){
-    state.user = null
+  setMail(state: { mail: any; }, email: any){
+    state.mail = email
+},
+LogOut(state: { user: null, mail: null; }){
+    state.user = null,
+    state.mail = null
 },  
-
 };
 
 export default {

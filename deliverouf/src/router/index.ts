@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ClientLogInView from '../views/ClientLogInView.vue'
 import ClientRegisterView from '../views/ClientRegisterView.vue'
+import ClientAccountView from '../views/ClientAccountView.vue'
 import ShopView from '../views/ShopView.vue'
 import store from '../store'
 
@@ -30,16 +31,22 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/commande",
-      name: "commande",
-      meta: { requiresAuth: true },
-      component: () =>
-        import(/* webpackChunkName: "about" */ "../components/ClientCommander.vue"),
-    },
+    name: "commande",
+    meta: { requiresAuth: true },
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../components/ClientCommander.vue"),
+  },
+  {
+    path: '/account',
+    name: 'account',
+    meta: { requiresAuth: true },
+    component: ClientAccountView
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 })
 
 router.beforeEach((to, from, next) => {
