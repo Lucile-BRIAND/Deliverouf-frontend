@@ -13,7 +13,7 @@
           <v-text-field
           v-model="form.username"
           :counter="10"
-          :rules="nameRules"
+          :rules="nameRules" 
           label="Nom"
           required
           bg-color="#ffffff"
@@ -118,7 +118,7 @@ export default defineComponent({
     computed: {
       passwordConfirmationRule() {
         return () =>
-          this.password === this.confirmPassword || "Le mot de passe doit correspondre.";
+          this.form.password === this.confirmPassword || "Le mot de passe doit correspondre.";
       },
     },
   });

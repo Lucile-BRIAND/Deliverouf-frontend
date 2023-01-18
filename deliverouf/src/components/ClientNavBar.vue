@@ -15,7 +15,7 @@
 
       <v-btn rounded to="/login" class="mx-1"><font-awesome-icon icon="fa-solid fa-user" class="mr-1"/>Compte</v-btn>
 
-      <v-btn rounded to="/shop" class="mx-1"><font-awesome-icon icon="fa-solid fa-cart-shopping" class="mr-1"/>Panier</v-btn>
+      <v-btn rounded to="/commande" class="mx-1"><font-awesome-icon icon="fa-solid fa-cart-shopping" class="mr-1"/>Panier</v-btn>
     </template>
     
   </v-app-bar>

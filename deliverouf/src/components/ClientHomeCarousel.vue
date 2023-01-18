@@ -48,6 +48,9 @@ export default defineComponent({
           {
             src: 'https://resize.elle.fr/original/var/plain_site/storage/images/elle-a-table/les-dossiers-de-la-redaction/news-de-la-redaction/comfort-food-healty-nos-recettes-qui-boostent-le-moral-et-l-organisme-4086663/98049386-2-fre-FR/Comfort-food-healty-nos-recettes-qui-boostent-le-moral-et-l-organisme.jpg',
           },
+          {
+            src: 'https://i0.wp.com/www.romainparis.fr/wp-content/uploads/Lheure-de-lapero-autour-dun-Ricard--scaled.jpeg?fit=2560%2C1912&ssl=1'
+          },
         ],
         colors: [
           'indigo',
