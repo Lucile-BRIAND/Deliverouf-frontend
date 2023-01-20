@@ -25,16 +25,10 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView
   },
   {
-    path: '/shop',
-    name: 'shop',
-    component: ShopView
-  },
-  {
     path: "/commande",
     name: "commande",
     meta: { requiresAuth: true },
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../components/ClientCommander.vue"),
+    component: ShopView
   },
   {
     path: '/account',

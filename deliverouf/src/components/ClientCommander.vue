@@ -1,5 +1,9 @@
 <template>
-    <div v-for = "restaurant in restaurant1" :key="restaurant">
+
+    <div v-for="restaurant in restaurants" :key="restaurant.nom">
+      {{ restaurant.nom }}<br/>{{ restaurant.ville }}
+    </div>
+    <div v-for = "restaurant in restaurant1" :key="restaurant.name">
         <v-card
       :loading="loading"
       class="mx-auto my-12"
@@ -83,14 +87,18 @@
   </template>
   
   <script lang="ts">
-  import { defineComponent } from 'vue';
+
+import { Restaurant } from '@/@types/restaurants';
+import { api, baseUrl } from '@/helpers/api';
+import { AxiosResponse } from 'axios';
+import { defineComponent } from 'vue';
     
   export default defineComponent({
       name: "ClientCommander",
       data: () => ({
         loading: false,
         selection: 1,       
-        
+       
         restaurant1:[{  
             id:"1",
             name: "Burger King, Restauration Rapide",
@@ -105,7 +113,12 @@
             menu:   "Menu Masters Forestier",
             img:    "https://burgerkingfrance.twic.pics/img/news/2dc772eb-61d9-42fe-832f-dc38c07d9ab5_national-37?twic=v1/contain=400x400",
             description:    "Livraison de Commande à domicile, Réception de commande à emporter, Commandes personnalisables",
-        },]
+        },],
+
+        
+        
+      restaurants: [] as Restaurant[],
+        
       }),
       methods: {
         reserve () 
@@ -118,5 +131,21 @@
             return (this.restaurant1);
         },
     },
+
+    beforeMount() {
+      api.get("resto")
+      .then((e: AxiosResponse): Restaurant[] => {
+        return e.data
+      })
+      .then((restaurants): Restaurant[] => {
+        return restaurants.map((restaurant) => {
+          restaurant.img = baseUrl + restaurant.img.split("assets")[1].toLowerCase();
+          return restaurant;
+        });
+      })
+      .then((restaurants) => {
+        this.restaurants = restaurants;
+      })
+    }
     });
   </script>
