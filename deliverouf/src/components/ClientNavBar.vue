@@ -7,7 +7,7 @@
       <img class="w-12 rounded-lg shadow mr-4"
       src="https://cdn.discordapp.com/attachments/957955006810705941/1062027708298698834/image.png" />
     
-      <a href="/" class="text-h4 font-weight-bold" style="font-family:Franklin Gothic Heavy">Deliver'Ouf</a>
+      <button @click="pushRouter()" class="text-h4 font-weight-bold" style="font-family:Franklin Gothic Heavy">Deliver'Ouf</button>
     </template>
 
     <v-spacer></v-spacer>
@@ -27,13 +27,17 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import router from '@/router';
 
   export default defineComponent({
     name: "ClientNavBar",
 
     data: () => ({
     }),
-    watch: {
+    methods: {
+      pushRouter(){
+        router.push("/");
+      }
     },
   },
 );
